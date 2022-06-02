@@ -18,6 +18,7 @@ def rock_paper_scissors():
             player2_option = "Paper"
         else:
             player2_option = "Scissors"
+
         if player1_option == "R":
             player1_option = "Rock"
         elif player1_option == "P":
@@ -25,15 +26,13 @@ def rock_paper_scissors():
         else:
             player1_option = "Scissors"
         print(player2 + "(" + player2_option + ") : " + player1 + "(" + player1_option + ")")
+
         if player2_option == player1_option:
             print("It's a tie, play again")
-        elif player1_option == "Rock" and player2_option == "Scissors":
-            print(player1 + " wins")
-            break
-        elif player1_option == "Paper" and player2_option == "Rock":
-            print(player1 + " wins")
-            break
-        elif player1_option == "Scissors" and player2_option == "Paper":
+        elif (player1_option == "Rock" and player2_option == "Scissors") or \
+                (player1_option == "Paper" and player2_option == "Rock") or \
+                (player1_option == "Scissors" and player2_option == "Paper"):
+
             print(player1 + " wins")
             break
         else:
