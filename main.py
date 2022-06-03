@@ -6,25 +6,8 @@ def rock_paper_scissors():
     player2 = input("Enter player name: ")
     values = ["R", "P", "S"]
     while True:
-        player2_option = input("pick an option between 'R', 'P' or 'S': ")
-        while player2_option not in values:
-            print("Invalid option, try again!")
-            player2_option = input("pick an option between 'R', 'P' or 'S': ")
-
-        player1_option = random.choice(values)
-        if player2_option == "R":
-            player2_option = "Rock"
-        elif player2_option == "P":
-            player2_option = "Paper"
-        else:
-            player2_option = "Scissors"
-
-        if player1_option == "R":
-            player1_option = "Rock"
-        elif player1_option == "P":
-            player1_option = "Paper"
-        else:
-            player1_option = "Scissors"
+        player2_option = player2_game_option(values)
+        player1_option = cpu_random_option(values)
         print(player2 + "(" + player2_option + ") : " + player1 + "(" + player1_option + ")")
 
         if player2_option == player1_option:
@@ -38,6 +21,31 @@ def rock_paper_scissors():
         else:
             print(player2 + " wins")
             break
+
+
+def player2_game_option(accepted_values):
+    option = input("pick an option between 'R', 'P' or 'S': ")
+    while option not in accepted_values:
+        print("Invalid option, try again!")
+        option = input("pick an option between 'R', 'P' or 'S': ")
+    if option == "R":
+        option = "Rock"
+    elif option == "P":
+        option = "Paper"
+    else:
+        option = "Scissors"
+    return option
+
+
+def cpu_random_option(accepted_values):
+    cpu_option = random.choice(accepted_values)
+    if cpu_option == "R":
+        cpu_option = "Rock"
+    elif cpu_option == "P":
+        cpu_option = "Paper"
+    else:
+        cpu_option = "Scissors"
+    return cpu_option
 
 
 rock_paper_scissors()
